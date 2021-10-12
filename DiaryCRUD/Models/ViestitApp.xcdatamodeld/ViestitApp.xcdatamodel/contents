@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="img" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="text" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="noteFolder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NoteFolder" inverseName="notes" inverseEntity="NoteFolder"/>
@@ -11,7 +12,7 @@
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="noteFolder" inverseEntity="Note"/>
     </entity>
     <elements>
-        <element name="Note" positionX="-54" positionY="-9" width="128" height="103"/>
+        <element name="Note" positionX="-54" positionY="-9" width="128" height="104"/>
         <element name="NoteFolder" positionX="-604.6789855957031" positionY="-213.6422119140625" width="128" height="73"/>
     </elements>
 </model>

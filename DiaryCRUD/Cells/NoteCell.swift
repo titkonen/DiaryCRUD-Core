@@ -10,7 +10,7 @@ class NoteCell: UITableViewCell {
             
             noteTitle.text = noteData.title
             dateLabel.text = dateFormatter.string(from: noteData.date ?? Date())
-            previewLabel.text = noteData.text
+            descriptionTextView.text = noteData.text
             
         }
     }
@@ -33,7 +33,7 @@ class NoteCell: UITableViewCell {
     }()
         
     /// Preview label
-    fileprivate var previewLabel: UILabel = {
+    fileprivate var descriptionTextView: UILabel = {
         let label = UILabel()
         label.text = "The note text will go here for note preview..."
         label.font = UIFont.systemFont(ofSize: 13, weight: .light)
@@ -43,7 +43,7 @@ class NoteCell: UITableViewCell {
     
     /// horizontal stack view
     fileprivate lazy var horizontalStackView: UIStackView = {
-        let s = UIStackView(arrangedSubviews: [dateLabel, previewLabel, UIView()])
+        let s = UIStackView(arrangedSubviews: [dateLabel, descriptionTextView, UIView()])
         s.axis = .horizontal
         s.spacing = 10
         s.alignment = .leading

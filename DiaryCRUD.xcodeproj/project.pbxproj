@@ -19,8 +19,6 @@
 		0FFD810826DE333900698EF6 /* NoteDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD810726DE333900698EF6 /* NoteDetailController.swift */; };
 		0FFD810B26DE48D200698EF6 /* FolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD810A26DE48D200698EF6 /* FolderCell.swift */; };
 		0FFD810D26DE995B00698EF6 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD810C26DE995B00698EF6 /* NoteCell.swift */; };
-		0FFD811026DF418C00698EF6 /* NoteFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD810F26DF418C00698EF6 /* NoteFolder.swift */; };
-		0FFD811226DF419B00698EF6 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFD811126DF419B00698EF6 /* Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +36,6 @@
 		0FFD810726DE333900698EF6 /* NoteDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailController.swift; sourceTree = "<group>"; };
 		0FFD810A26DE48D200698EF6 /* FolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCell.swift; sourceTree = "<group>"; };
 		0FFD810C26DE995B00698EF6 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
-		0FFD810F26DF418C00698EF6 /* NoteFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFolder.swift; sourceTree = "<group>"; };
-		0FFD811126DF419B00698EF6 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,15 +70,9 @@
 			children = (
 				0FFD810E26DF417700698EF6 /* Models */,
 				0FFD810926DE48B200698EF6 /* Cells */,
-				0F1ABB6926DD05A60023C662 /* AppDelegate.swift */,
-				0F1ABB6B26DD05A60023C662 /* SceneDelegate.swift */,
 				0F1ABB7D26DD0E450023C662 /* Controllers */,
-				0F1ABB7226DD05AA0023C662 /* Assets.xcassets */,
-				0F1ABB7426DD05AA0023C662 /* LaunchScreen.storyboard */,
 				0F1ABB7726DD05AA0023C662 /* Info.plist */,
-				0F1ABB8026DD16BF0023C662 /* extension.swift */,
-				0F84855F26E0F9220027D42C /* ViestitApp.xcdatamodeld */,
-				0F84856226E0FD970027D42C /* CoreDataManager.swift */,
+				0FE2E8BB2715B56C007340EC /* Support */,
 			);
 			path = DiaryCRUD;
 			sourceTree = "<group>";
@@ -97,6 +87,16 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		0FE2E8BB2715B56C007340EC /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				0F1ABB7426DD05AA0023C662 /* LaunchScreen.storyboard */,
+				0F1ABB7226DD05AA0023C662 /* Assets.xcassets */,
+				0F1ABB8026DD16BF0023C662 /* extension.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		0FFD810926DE48B200698EF6 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,8 +109,10 @@
 		0FFD810E26DF417700698EF6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0FFD810F26DF418C00698EF6 /* NoteFolder.swift */,
-				0FFD811126DF419B00698EF6 /* Note.swift */,
+				0F84855F26E0F9220027D42C /* ViestitApp.xcdatamodeld */,
+				0F84856226E0FD970027D42C /* CoreDataManager.swift */,
+				0F1ABB6926DD05A60023C662 /* AppDelegate.swift */,
+				0F1ABB6B26DD05A60023C662 /* SceneDelegate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,10 +193,8 @@
 				0F84856126E0F9220027D42C /* ViestitApp.xcdatamodeld in Sources */,
 				0F1ABB6C26DD05A60023C662 /* SceneDelegate.swift in Sources */,
 				0F84856326E0FD970027D42C /* CoreDataManager.swift in Sources */,
-				0FFD811226DF419B00698EF6 /* Note.swift in Sources */,
 				0F1ABB8126DD16BF0023C662 /* extension.swift in Sources */,
 				0F1ABB7F26DD0E8D0023C662 /* FolderNotesController.swift in Sources */,
-				0FFD811026DF418C00698EF6 /* NoteFolder.swift in Sources */,
 				0FFD810D26DE995B00698EF6 /* NoteCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

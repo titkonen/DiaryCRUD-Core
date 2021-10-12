@@ -103,11 +103,11 @@ struct CoreDataManager {
     }
     
     // MARK:  Update notes
-    func saveUpdatedNote(note: Note, newText: String) {
+    func saveUpdatedNote(note: Note, newText: String, newDescription: String) {
         let context = persistentContainer.viewContext
         
         note.title = newText
-        note.text = newText
+        note.text = newDescription
         note.date = Date()
         
         do {
@@ -115,8 +115,24 @@ struct CoreDataManager {
         } catch let err {
             print("Failed to update note", err)
         }
-        
     }
+    
+    // MARK:  Save Image
+    func saveImage(data: Data) {
+        let context = persistentContainer.viewContext
+        
+        let imageInstance = Note(context: context)
+        imageInstance.img = data
+            
+        do {
+            try context.save()
+            print("Image is saved")
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    
     
     
     
