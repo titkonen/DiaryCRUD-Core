@@ -1,7 +1,7 @@
 import UIKit
 
 protocol NoteDelegate {
-    func saveNewNote(title: String, date: Date, text: String)
+    func saveNewNote(title: String, date: Date, text: String, img: Data)
 }
 
 class NoteDetailController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
@@ -18,11 +18,14 @@ class NoteDetailController: UIViewController, UINavigationControllerDelegate, UI
             textView.text = noteData.title
             dateLabel.text = dateFormatter.string(from: noteData.date ?? Date())
             descriptionTextView.text = noteData.text
+            imageView.image = noteData.img
         }
     }
     
     var delegate: NoteDelegate?
+   // let image = UIImage(data)
     
+    // MARK: PROPERTIES UI
     fileprivate var textView: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -86,13 +89,14 @@ class NoteDetailController: UIViewController, UINavigationControllerDelegate, UI
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveImage))
         imageView.layer.cornerRadius = 8
+        //imageView.image = UIImage(data)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         if self.noteData == nil {
-            delegate?.saveNewNote(title: textView.text, date: Date(), text: descriptionTextView.text)
+            delegate?.saveNewNote(title: textView.text, date: Date(), text: descriptionTextView.text, img: imageView.Data)
         } else {
             // update our note here
             guard let newText = self.textView.text else {
@@ -102,7 +106,7 @@ class NoteDetailController: UIViewController, UINavigationControllerDelegate, UI
             guard let newDescription = self.descriptionTextView.text else {
                 return
             }
-            CoreDataManager.shared.saveUpdatedNote(note: self.noteData, newText: newText, newDescription: newDescription)
+            CoreDataManager.shared.saveUpdatedNote(note: self.noteData, newText: newText, newDescription: newDescription, newImage: newImage)
         }
     }
     
@@ -110,34 +114,24 @@ class NoteDetailController: UIViewController, UINavigationControllerDelegate, UI
         super.viewWillAppear(animated)
         
         let items: [UIBarButtonItem] = [
-//            UIBarButtonItem(barButtonSystemItem: .organize, target: nil, action: nil),
-//            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-//            UIBarButtonItem(barButtonSystemItem: .refresh, target: nil, action: nil),
-//            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-//            UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil),
-//            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-//            UIBarButtonItem(barButtonSystemItem: .camera, target: nil, action: nil),
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
             UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(cameraButtonPressed))
         ]
         
         self.toolbarItems = items
-       
-//        let topItems: [UIBarButtonItem] = [
-//            UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil),
-//            UIBarButtonItem(barButtonSystemItem: .action, target: nil, action: nil)
-//        ]
-//
-//        self.navigationItem.setRightBarButtonItems(topItems, animated: false)
     }
     
     // MARK: FUNCTIONS
     @objc func saveImage() {
+        print("SaveButtonPressedStarts")
         if let imageData = imageView.image?.pngData() {
             CoreDataManager.shared.saveImage(data: imageData)
         }
+        print("SaveButtonPressedEnds")
     }
     
+    
+    // MARK: IMAGE FUNCTIONS
     @objc func cameraButtonPressed() {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -153,7 +147,7 @@ class NoteDetailController: UIViewController, UINavigationControllerDelegate, UI
         picker.dismiss(animated: true)
     }
     
-    
+    // MARK: UI
     fileprivate func setupUI() {
         view.addSubview(dateLabel)
         view.addSubview(textView)

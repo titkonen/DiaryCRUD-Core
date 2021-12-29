@@ -60,8 +60,28 @@ struct CoreDataManager {
     }
     
     // MARK: NOTE FUNCTIONS
-    // MARK: Create New Note
-    func createNewNote(title: String, date: Date, text: String, noteFolder: NoteFolder) -> Note {
+//    // MARK: Create New Note
+//    func createNewNote(title: String, date: Date, text: String, noteFolder: NoteFolder) -> Note {
+//        let context = persistentContainer.viewContext
+//        let newNote = NSEntityDescription.insertNewObject(forEntityName: "Note", into: context) as! Note
+//
+//        //newNote.setValue(title, forKey: "title")
+//        newNote.title = title
+//        newNote.text = text
+//        newNote.date = date
+//        newNote.noteFolder = noteFolder
+//
+//        do {
+//            try context.save()
+//            return newNote
+//        } catch let err {
+//            print("Failed to save new note", err)
+//          return newNote
+//        }
+//    }
+    
+    // MARK: Create New Note with image property
+    func createNewNote(title: String, date: Date, text: String, img: Data, noteFolder: NoteFolder) -> Note {
         let context = persistentContainer.viewContext
         let newNote = NSEntityDescription.insertNewObject(forEntityName: "Note", into: context) as! Note
         
@@ -69,6 +89,8 @@ struct CoreDataManager {
         newNote.title = title
         newNote.text = text
         newNote.date = date
+        newNote.img = img
+
         newNote.noteFolder = noteFolder
         
         do {
@@ -103,12 +125,13 @@ struct CoreDataManager {
     }
     
     // MARK:  Update notes
-    func saveUpdatedNote(note: Note, newText: String, newDescription: String) {
+    func saveUpdatedNote(note: Note, newText: String, newDescription: String, newImage: Data) {
         let context = persistentContainer.viewContext
         
         note.title = newText
         note.text = newDescription
         note.date = Date()
+        note.img = newImage
         
         do {
             try context.save()
@@ -126,11 +149,12 @@ struct CoreDataManager {
             
         do {
             try context.save()
-            print("Image is saved")
+            print("Image is saved11")
         } catch {
             print(error.localizedDescription)
         }
     }
+    
     
     
     

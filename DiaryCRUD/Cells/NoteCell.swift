@@ -11,6 +11,7 @@ class NoteCell: UITableViewCell {
             noteTitle.text = noteData.title
             dateLabel.text = dateFormatter.string(from: noteData.date ?? Date())
             descriptionTextView.text = noteData.text
+            //imageView?.image = noteData.img
             
         }
     }

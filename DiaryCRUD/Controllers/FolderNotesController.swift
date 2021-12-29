@@ -2,8 +2,8 @@ import UIKit
 
 // MARK: EXTENSION NoteDelegate
 extension FolderNotesController: NoteDelegate {
-    func saveNewNote(title: String, date: Date, text: String) {
-        let newNote = CoreDataManager.shared.createNewNote(title: title, date: date, text: text, noteFolder: self.folderData) ///Creates new note to the list and coredata
+    func saveNewNote(title: String, date: Date, text: String, img: Data) {
+        let newNote = CoreDataManager.shared.createNewNote(title: title, date: date, text: text, img: img, noteFolder: self.folderData) ///Creates new note to the list and coredata
         notes.append(newNote)
         filteredNotes.append(newNote)
         self.tableView.insertRows(at: [IndexPath(row: notes.count - 1, section: 0)], with: .fade)
@@ -134,7 +134,7 @@ extension FolderNotesController {
         return 60
     }
     
-    ///Push content to NoteDetailController
+    //MARK: Push content to NoteDetailController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let noteDetailController = NoteDetailController()
         let noteForRow = self.filteredNotes[indexPath.row]

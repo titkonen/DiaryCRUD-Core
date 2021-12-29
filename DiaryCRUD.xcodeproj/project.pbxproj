@@ -33,6 +33,7 @@
 		0F1ABB8026DD16BF0023C662 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		0F84856026E0F9220027D42C /* ViestitApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ViestitApp.xcdatamodel; sourceTree = "<group>"; };
 		0F84856226E0FD970027D42C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		0F882A54272BFE3E00788A00 /* ViestitApp 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ViestitApp 2.xcdatamodel"; sourceTree = "<group>"; };
 		0FFD810726DE333900698EF6 /* NoteDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailController.swift; sourceTree = "<group>"; };
 		0FFD810A26DE48D200698EF6 /* FolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCell.swift; sourceTree = "<group>"; };
 		0FFD810C26DE995B00698EF6 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
@@ -394,9 +395,10 @@
 		0F84855F26E0F9220027D42C /* ViestitApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0F882A54272BFE3E00788A00 /* ViestitApp 2.xcdatamodel */,
 				0F84856026E0F9220027D42C /* ViestitApp.xcdatamodel */,
 			);
-			currentVersion = 0F84856026E0F9220027D42C /* ViestitApp.xcdatamodel */;
+			currentVersion = 0F882A54272BFE3E00788A00 /* ViestitApp 2.xcdatamodel */;
 			path = ViestitApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
